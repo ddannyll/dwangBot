@@ -16,19 +16,16 @@ client.on('ready', () => {
 
 client.on('messageCreate', (message) => {
     if (message.author.bot) return;
+    
+    if (message.author.tag === 'dann#0377') message.react('🇼');
 
-    if (message.author.username !== 'K0FFE1NE') {
-        message.reply({
-            content: `Sorry idiot. I only reply to K0FFEINE.`,
-        })
-        message.react('🇱')
-    }
+    if (message.author.tag === "K0FFE1NE#7917" && Math.floor(Math.random()*3) === 1) message.react('🇱');
+    
     if (message.content === 'ping') {
         message.reply({
             content: `pong ${message.author}`,
         })
     }
-    console.log(message.author)
 })
 
 client.login(process.env.TOKEN)
